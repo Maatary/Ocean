@@ -1,0 +1,487 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY OceanCL "http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#" >
+    <!ENTITY temporal "http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#"
+     xml:base="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:temporal="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:OceanCL="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#">
+    <owl:Ontology rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl">
+        <owl:imports rdf:resource="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#before -->
+
+    <owl:ObjectProperty rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#before">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="&temporal;ValidTime"/>
+        <rdfs:range rdf:resource="&temporal;ValidTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#evBefore -->
+
+    <owl:ObjectProperty rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#evBefore">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="&OceanCL;TimedEvent"/>
+        <rdfs:range rdf:resource="&OceanCL;TimedEvent"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&OceanCL;atTime"/>
+            <rdf:Description rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#before"/>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="&OceanCL;atTime"/>
+            </rdf:Description>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#evSameTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#evSameTime">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="&OceanCL;TimedEvent"/>
+        <rdfs:domain rdf:resource="&OceanCL;TimedEvent"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&OceanCL;atTime"/>
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="&OceanCL;atTime"/>
+            </rdf:Description>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#hasCreditor -->
+
+    <owl:ObjectProperty rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#hasCreditor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation"/>
+        <rdfs:range rdf:resource="&OceanCL;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#hasDebtor -->
+
+    <owl:ObjectProperty rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#hasDebtor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation"/>
+        <rdfs:range rdf:resource="&OceanCL;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#hasDurationOfValidity -->
+
+    <owl:ObjectProperty rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#hasDurationOfValidity">
+        <rdfs:range rdf:resource="&temporal;Duration"/>
+        <rdfs:domain rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#hasInterval -->
+
+    <owl:ObjectProperty rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#hasInterval">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&temporal;ValidPeriod"/>
+        <rdfs:domain rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Activated -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Activated">
+        <rdfs:subClassOf rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Canceled -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Canceled">
+        <rdfs:subClassOf rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#ElapsedInstant -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#ElapsedInstant">
+        <rdfs:subClassOf rdf:resource="&temporal;ValidInstant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#ElapsedPeriod -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#ElapsedPeriod">
+        <rdfs:subClassOf rdf:resource="&temporal;ValidPeriod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Fulfilled -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Fulfilled">
+        <rdfs:subClassOf rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#OccuredEvent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#hasCreditor"/>
+                        <owl:onClass rdf:resource="&OceanCL;Agent"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#hasDebtor"/>
+                        <owl:onClass rdf:resource="&OceanCL;Agent"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#hasInterval"/>
+                        <owl:onClass rdf:resource="&temporal;ValidPeriod"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#PerformedAction"/>
+        <owl:disjointWith rdf:resource="&OceanCL;Action"/>
+        <owl:disjointWith rdf:resource="&OceanCL;TimeEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#OccuredEvent -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#OccuredEvent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OceanCL;atTime"/>
+                <owl:onClass rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#ElapsedInstant"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&OceanCL;TimedEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#PerformedAction -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#PerformedAction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#OccuredEvent"/>
+                    <rdf:Description rdf:about="&OceanCL;Action"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#OccuredEvent"/>
+        <rdfs:subClassOf rdf:resource="&OceanCL;Action"/>
+        <owl:disjointWith rdf:resource="&OceanCL;TimeEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Violated -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Violated">
+        <rdfs:subClassOf rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Action -->
+
+    <rdf:Description rdf:about="&OceanCL;Action"/>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#TimeEvent -->
+
+    <rdf:Description rdf:about="&OceanCL;TimeEvent"/>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#TimedEvent -->
+
+    <rdf:Description rdf:about="&OceanCL;TimedEvent">
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation"/>
+            <rdf:Description rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#PerformedAction"/>
+            <rdf:Description rdf:about="&OceanCL;TimeEvent"/>
+        </owl:disjointUnionOf>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <swrl:Variable rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst"/>
+    <swrl:Variable rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#t"/>
+    <swrl:Variable rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst1"/>
+    <swrl:Variable rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst2"/>
+    <swrl:Variable rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#t1"/>
+    <swrl:Variable rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#t2"/>
+    <swrl:Imp>
+        <swrl:body>
+            <swrl:AtomList>
+                <rdf:rest>
+                    <swrl:AtomList>
+                        <rdf:rest>
+                            <swrl:AtomList>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                <rdf:first>
+                                    <swrl:BuiltinAtom>
+                                        <swrl:builtin rdf:resource="&temporal;before"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#t"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">now</rdf:first>
+                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </swrl:BuiltinAtom>
+                                </rdf:first>
+                            </swrl:AtomList>
+                        </rdf:rest>
+                        <rdf:first>
+                            <swrl:DatavaluedPropertyAtom>
+                                <swrl:propertyPredicate rdf:resource="&temporal;hasTime"/>
+                                <swrl:argument1 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst"/>
+                                <swrl:argument2 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#t"/>
+                            </swrl:DatavaluedPropertyAtom>
+                        </rdf:first>
+                    </swrl:AtomList>
+                </rdf:rest>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&temporal;ValidInstant"/>
+                        <swrl:argument1 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:body>
+        <swrl:head>
+            <swrl:AtomList>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#ElapsedInstant"/>
+                        <swrl:argument1 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:head>
+    </swrl:Imp>
+    <swrl:Imp>
+        <swrl:head>
+            <swrl:AtomList>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:argument1 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst"/>
+                        <swrl:classPredicate rdf:resource="&owl;Nothing"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:head>
+        <swrl:body>
+            <swrl:AtomList>
+                <rdf:rest>
+                    <swrl:AtomList>
+                        <rdf:rest>
+                            <swrl:AtomList>
+                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                <rdf:first>
+                                    <swrl:BuiltinAtom>
+                                        <swrl:builtin rdf:resource="&temporal;notBefore"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&rdf;List"/>
+                                                <rdf:first rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#t"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="&rdf;List"/>
+                                                        <rdf:first rdf:datatype="&xsd;string">now</rdf:first>
+                                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </swrl:BuiltinAtom>
+                                </rdf:first>
+                            </swrl:AtomList>
+                        </rdf:rest>
+                        <rdf:first>
+                            <swrl:DatavaluedPropertyAtom>
+                                <swrl:propertyPredicate rdf:resource="&temporal;hasTime"/>
+                                <swrl:argument1 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst"/>
+                                <swrl:argument2 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#t"/>
+                            </swrl:DatavaluedPropertyAtom>
+                        </rdf:first>
+                    </swrl:AtomList>
+                </rdf:rest>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#ElapsedInstant"/>
+                        <swrl:argument1 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:body>
+    </swrl:Imp>
+    <swrl:Imp>
+        <swrl:head>
+            <swrl:AtomList>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <swrl:IndividualPropertyAtom>
+                        <swrl:propertyPredicate rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#before"/>
+                        <swrl:argument1 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst1"/>
+                        <swrl:argument2 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst2"/>
+                    </swrl:IndividualPropertyAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:head>
+        <swrl:body>
+            <swrl:AtomList>
+                <rdf:rest>
+                    <swrl:AtomList>
+                        <rdf:first>
+                            <swrl:ClassAtom>
+                                <swrl:classPredicate rdf:resource="&temporal;ValidInstant"/>
+                                <swrl:argument1 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst2"/>
+                            </swrl:ClassAtom>
+                        </rdf:first>
+                        <rdf:rest>
+                            <swrl:AtomList>
+                                <rdf:first>
+                                    <swrl:DatavaluedPropertyAtom>
+                                        <swrl:propertyPredicate rdf:resource="&temporal;hasTime"/>
+                                        <swrl:argument1 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst1"/>
+                                        <swrl:argument2 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#t1"/>
+                                    </swrl:DatavaluedPropertyAtom>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <swrl:AtomList>
+                                        <rdf:first>
+                                            <swrl:DatavaluedPropertyAtom>
+                                                <swrl:propertyPredicate rdf:resource="&temporal;hasTime"/>
+                                                <swrl:argument1 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst2"/>
+                                                <swrl:argument2 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#t2"/>
+                                            </swrl:DatavaluedPropertyAtom>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <swrl:AtomList>
+                                                <rdf:rest rdf:resource="&rdf;nil"/>
+                                                <rdf:first>
+                                                    <swrl:BuiltinAtom>
+                                                        <swrl:builtin rdf:resource="&temporal;before"/>
+                                                        <swrl:arguments rdf:parseType="Collection">
+                                                            <rdf:Description rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#t1"/>
+                                                            <rdf:Description rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#t2"/>
+                                                        </swrl:arguments>
+                                                    </swrl:BuiltinAtom>
+                                                </rdf:first>
+                                            </swrl:AtomList>
+                                        </rdf:rest>
+                                    </swrl:AtomList>
+                                </rdf:rest>
+                            </swrl:AtomList>
+                        </rdf:rest>
+                    </swrl:AtomList>
+                </rdf:rest>
+                <rdf:first>
+                    <swrl:ClassAtom>
+                        <swrl:classPredicate rdf:resource="&temporal;ValidInstant"/>
+                        <swrl:argument1 rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#inst1"/>
+                    </swrl:ClassAtom>
+                </rdf:first>
+            </swrl:AtomList>
+        </swrl:body>
+    </swrl:Imp>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

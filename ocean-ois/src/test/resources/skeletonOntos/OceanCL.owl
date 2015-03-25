@@ -1,0 +1,406 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY OceanCL "http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#" >
+    <!ENTITY temporal "http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#"
+     xml:base="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:temporal="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:OceanCL="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#">
+    <owl:Ontology rdf:about="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl">
+        <owl:imports rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#atTime -->
+
+    <owl:ObjectProperty rdf:about="&OceanCL;atTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&temporal;ValidInstant"/>
+        <rdfs:domain rdf:resource="&OceanCL;TimedEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#hasActionPart -->
+
+    <owl:ObjectProperty rdf:about="&OceanCL;hasActionPart">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&OceanCL;Action"/>
+        <rdfs:domain rdf:resource="&OceanCL;ConditionalAction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#hasActor -->
+
+    <owl:ObjectProperty rdf:about="&OceanCL;hasActor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&OceanCL;Action"/>
+        <rdfs:range rdf:resource="&OceanCL;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#hasConditionPart -->
+
+    <owl:ObjectProperty rdf:about="&OceanCL;hasConditionPart">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&OceanCL;ConditionalAction"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&OceanCL;Action"/>
+                    <rdf:Description rdf:about="&OceanCL;TimeEvent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#hasDeadline -->
+
+    <owl:ObjectProperty rdf:about="&OceanCL;hasDeadline">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&OceanCL;Action"/>
+        <rdfs:range rdf:resource="&OceanCL;TimeEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#hasDuration -->
+
+    <owl:ObjectProperty rdf:about="&OceanCL;hasDuration">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&temporal;Duration"/>
+        <rdfs:domain rdf:resource="&OceanCL;Action"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#hasStatedAction -->
+
+    <owl:ObjectProperty rdf:about="&OceanCL;hasStatedAction">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&OceanCL;Action"/>
+        <rdfs:domain rdf:resource="&OceanCL;Done"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#hasStatedTime -->
+
+    <owl:ObjectProperty rdf:about="&OceanCL;hasStatedTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&temporal;ValidInstant"/>
+        <rdfs:domain rdf:resource="&OceanCL;Done"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#hasAID -->
+
+    <owl:DatatypeProperty rdf:about="&OceanCL;hasAID">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&OceanCL;Agent"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#hasObject -->
+
+    <owl:DatatypeProperty rdf:about="&OceanCL;hasObject">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&OceanCL;Statement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#hasPredicate -->
+
+    <owl:DatatypeProperty rdf:about="&OceanCL;hasPredicate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&OceanCL;Statement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#hasSubject -->
+
+    <owl:DatatypeProperty rdf:about="&OceanCL;hasSubject">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&OceanCL;Statement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Duration -->
+
+    <rdf:Description rdf:about="&temporal;Duration">
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="&temporal;hasGranularity"/>
+            <rdf:Description rdf:about="&temporal;hasCount"/>
+        </owl:hasKey>
+    </rdf:Description>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#ValidInstant -->
+
+    <rdf:Description rdf:about="&temporal;ValidInstant">
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="&temporal;hasTime"/>
+        </owl:hasKey>
+    </rdf:Description>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#ValidPeriod -->
+
+    <rdf:Description rdf:about="&temporal;ValidPeriod">
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="&temporal;hasFinishTime"/>
+            <rdf:Description rdf:about="&temporal;hasStartTime"/>
+        </owl:hasKey>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Action -->
+
+    <owl:Class rdf:about="&OceanCL;Action">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OceanCL;hasActor"/>
+                <owl:onClass rdf:resource="&OceanCL;Agent"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&OceanCL;Event"/>
+        <owl:disjointWith rdf:resource="&OceanCL;TimeEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Agent -->
+
+    <owl:Class rdf:about="&OceanCL;Agent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OceanCL;hasAID"/>
+                <owl:someValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="&OceanCL;ContentElement"/>
+        <owl:disjointWith rdf:resource="&OceanCL;Event"/>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="&OceanCL;hasAID"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#ConditionalAction -->
+
+    <owl:Class rdf:about="&OceanCL;ConditionalAction">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&OceanCL;hasActionPart"/>
+                        <owl:onClass rdf:resource="&OceanCL;Action"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&OceanCL;hasConditionPart"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&OceanCL;Action"/>
+                                    <rdf:Description rdf:about="&OceanCL;TimeEvent"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#ContentElement -->
+
+    <owl:Class rdf:about="&OceanCL;ContentElement">
+        <owl:disjointWith rdf:resource="&OceanCL;TimeEvent"/>
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&OceanCL;Action"/>
+            <rdf:Description rdf:about="&OceanCL;ConditionalAction"/>
+            <rdf:Description rdf:about="&OceanCL;Statement"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Done -->
+
+    <owl:Class rdf:about="&OceanCL;Done">
+        <rdfs:subClassOf rdf:resource="&OceanCL;Statement"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&OceanCL;hasStatedAction"/>
+                        <owl:onClass rdf:resource="&OceanCL;Action"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&OceanCL;hasStatedTime"/>
+                        <owl:onClass rdf:resource="&temporal;ValidInstant"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Event -->
+
+    <owl:Class rdf:about="&OceanCL;Event"/>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#SimpleStatement -->
+
+    <owl:Class rdf:about="&OceanCL;SimpleStatement">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&OceanCL;hasObject"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&OceanCL;hasPredicate"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&OceanCL;hasSubject"/>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onDataRange rdf:resource="&xsd;string"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&OceanCL;Statement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Statement -->
+
+    <owl:Class rdf:about="&OceanCL;Statement">
+        <owl:disjointUnionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="&OceanCL;Done"/>
+            <rdf:Description rdf:about="&OceanCL;SimpleStatement"/>
+        </owl:disjointUnionOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#TimeEvent -->
+
+    <owl:Class rdf:about="&OceanCL;TimeEvent">
+        <rdfs:subClassOf rdf:resource="&OceanCL;TimedEvent"/>
+        <owl:hasKey rdf:parseType="Collection">
+            <rdf:Description rdf:about="&OceanCL;atTime"/>
+        </owl:hasKey>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#TimedEvent -->
+
+    <owl:Class rdf:about="&OceanCL;TimedEvent">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&OceanCL;atTime"/>
+                <owl:onClass rdf:resource="&temporal;ValidInstant"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&OceanCL;Event"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+

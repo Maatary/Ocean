@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#"
+     xml:base="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl"
+     xmlns:OblOntology="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:PayDeliveryOntology="http://www.people.lu.unisi.ch/okouyad/PayDeliveryOntology.owl#"
+     xmlns:temporal="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:OceanCL="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#"
+     xmlns:CommitmentOntology="http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#">
+    <owl:Ontology rdf:about="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl">
+        <owl:imports rdf:resource="http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl"/>
+        <owl:imports rdf:resource="http://www.people.lu.unisi.ch/okouyad/PayDeliveryOntology.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#KActivated -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#KActivated">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#KCanceled -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#KCanceled">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#KFulfilled -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#KFulfilled">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#KViolated -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#KViolated">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#KActivated -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#KActivated">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+        <rdfs:subClassOf rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Activated"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#KCanceled -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#KCanceled">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+        <rdfs:subClassOf rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Canceled"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#KFulfilled -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#KFulfilled">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+        <rdfs:subClassOf rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Fulfilled"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#KViolated -->
+
+    <owl:Class rdf:about="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#KViolated">
+        <owl:equivalentClass rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+        <rdfs:subClassOf rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Violated"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Nothing -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Days -->
+
+    <owl:Thing rdf:about="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Days">
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Entity"/>
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Granularity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Hours -->
+
+    <owl:Thing rdf:about="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Hours">
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Entity"/>
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Granularity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Milliseconds -->
+
+    <owl:Thing rdf:about="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Milliseconds">
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Entity"/>
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Granularity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Minutes -->
+
+    <owl:Thing rdf:about="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Minutes">
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Entity"/>
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Granularity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Months -->
+
+    <owl:Thing rdf:about="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Months">
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Entity"/>
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Granularity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Seconds -->
+
+    <owl:Thing rdf:about="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Seconds">
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Entity"/>
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Granularity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Years -->
+
+    <owl:Thing rdf:about="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Years">
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Entity"/>
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Granularity"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/Claim_Instant_2014-07-29T12:45:08+02:00_seller-john@10.62.65.103:1099/JADE__buyer-mary@10.62.65.103:1098/JADE.owl -->
+
+    <owl:Thing rdf:about="http://www.people.lu.unisi.ch/okouyad/Claim_Instant_2014-07-29T12:45:08+02:00_seller-john@10.62.65.103:1099/JADE__buyer-mary@10.62.65.103:1098/JADE.owl">
+        <rdf:type rdf:resource="http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#ClaimGraph"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <CommitmentOntology:fromPcomit rdf:resource="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Pcomit_Instant_2014-07-29T12:45:08+02:00_seller-john@10.62.65.103:1099/JADE__buyer-mary@10.62.65.103:1098/JADE"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Agent_buyer-mary@10.62.65.103:1098/JADE -->
+
+    <owl:Thing rdf:about="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Agent_buyer-mary@10.62.65.103:1098/JADE">
+        <rdf:type rdf:resource="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Agent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Agent_seller-john@10.62.65.103:1099/JADE -->
+
+    <owl:Thing rdf:about="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Agent_seller-john@10.62.65.103:1099/JADE">
+        <rdf:type rdf:resource="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Agent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Instant_2014-07-29T12:45:08+02:00 -->
+
+    <owl:Thing rdf:about="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Instant_2014-07-29T12:45:08+02:00">
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#Entity"/>
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#ValidInstant"/>
+        <rdf:type rdf:resource="http://swrl.stanford.edu/ontologies/built-ins/3.3/temporal.owl#ValidTime"/>
+        <rdf:type rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#ElapsedInstant"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <temporal:hasTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2014-07-29T12:45:08+02:00</temporal:hasTime>
+    </owl:Thing>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Pcomit_Instant_2014-07-29T12:45:08+02:00_seller-john@10.62.65.103:1099/JADE__buyer-mary@10.62.65.103:1098/JADE -->
+
+    <owl:Thing rdf:about="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Pcomit_Instant_2014-07-29T12:45:08+02:00_seller-john@10.62.65.103:1099/JADE__buyer-mary@10.62.65.103:1098/JADE">
+        <rdf:type rdf:resource="http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#Commitment"/>
+        <rdf:type rdf:resource="http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#PropositionalCommitment"/>
+        <rdf:type rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#OccuredEvent"/>
+        <rdf:type rdf:resource="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Event"/>
+        <rdf:type rdf:resource="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#TimedEvent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <CommitmentOntology:commitTo rdf:resource="http://www.people.lu.unisi.ch/okouyad/Claim_Instant_2014-07-29T12:45:08+02:00_seller-john@10.62.65.103:1099/JADE__buyer-mary@10.62.65.103:1098/JADE.owl"/>
+        <OblOntology:hasCreditor rdf:resource="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Agent_buyer-mary@10.62.65.103:1098/JADE"/>
+        <OblOntology:hasDebtor rdf:resource="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Agent_seller-john@10.62.65.103:1099/JADE"/>
+        <OceanCL:atTime rdf:resource="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Instant_2014-07-29T12:45:08+02:00"/>
+        <OblOntology:evSameTime rdf:resource="http://www.people.lu.unisi.ch/okouyad/stateOntology.owl#Pcomit_Instant_2014-07-29T12:45:08+02:00_seller-john@10.62.65.103:1099/JADE__buyer-mary@10.62.65.103:1098/JADE"/>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.3) http://owlapi.sourceforge.net -->
+

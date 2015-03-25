@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.usi.ch/ict/dev/AclOverSoapHttpMP/" xmlns:tns="http://www.usi.ch/ict/dev/AclOverSoapHttpMP/">
+	<xsd:element name="acl-message">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="acl-envelope" type="tns:acl-envelope" maxOccurs="1" minOccurs="1"/>
+				<xsd:element name="acl-payload" type="tns:acl-payload" maxOccurs="1" minOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="acl-envelope">
+		<xsd:sequence>
+            <xsd:element name="params" type="tns:params"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="acl-payload">
+		<xsd:sequence minOccurs="1" maxOccurs="1">
+			<xsd:element name="sender" type="tns:agent-identifier" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="receiver" type="tns:agent-identifier" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="content" type="xsd:string" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="conversation-id" type="xsd:ID" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="reply-to" type="tns:agent-identifier" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="reply-with" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="in-reply-to" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="reply-by" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="language" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="language-representation" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="ontology" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="protocol" type="xsd:string" minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+		<xsd:attribute name="act" use="required" type="tns:act"/>
+	</xsd:complexType>
+	<xsd:simpleType name="act">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="accept-proposal"/>
+			<xsd:enumeration value="agree"/>
+			<xsd:enumeration value="cancel"/>
+			<xsd:enumeration value="cfp"/>
+			<xsd:enumeration value="confirm"/>
+			<xsd:enumeration value="declare"/>
+			<xsd:enumeration value="disconfirm"/>
+			<xsd:enumeration value="failure"/>
+			<xsd:enumeration value="inform"/>
+			<xsd:enumeration value="not-understood"/>
+			<xsd:enumeration value="propose"/>
+			<xsd:enumeration value="query-if"/>
+			<xsd:enumeration value="query-ref"/>
+			<xsd:enumeration value="refuse"/>
+			<xsd:enumeration value="reject-proposal"/>
+			<xsd:enumeration value="request"/>
+			<xsd:enumeration value="request-when"/>
+			<xsd:enumeration value="request-whenever"/>
+			<xsd:enumeration value="subscribe"/>
+			<xsd:enumeration value="inform-if"/>
+			<xsd:enumeration value="inform-ref"/>
+			<xsd:enumeration value="proxy"/>
+			<xsd:enumeration value="propagate"/>
+			<xsd:enumeration value="promise"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="agent-identifier">
+		<xsd:sequence minOccurs="1" maxOccurs="1">
+			<xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="address" type="xsd:anyURI" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="resolver" type="tns:agent-identifier" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:any minOccurs="0" maxOccurs="unbounded" processContents="strict" namespace="##other"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="received">
+		<xsd:sequence>
+			<xsd:element name="received-by" type="xsd:anyURI"></xsd:element>
+			<xsd:element name="received-from" type="xsd:anyURI"></xsd:element>
+			<xsd:element name="received-date" type="xsd:dateTime"></xsd:element>
+			<xsd:element name="received-id" type="xsd:string"></xsd:element>
+			<xsd:element name="received-via" type="xsd:anyURI"></xsd:element>
+			<xsd:any minOccurs="0" maxOccurs="unbounded" processContents="strict" namespace="##other"></xsd:any>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="params">
+		<xsd:sequence>
+			<xsd:element name="to" type="tns:agent-identifier"
+				maxOccurs="unbounded" minOccurs="1" />
+			<xsd:element name="from" type="tns:agent-identifier"
+				maxOccurs="1" minOccurs="1" />
+			<xsd:element name="date" type="xsd:dateTime" maxOccurs="1"
+				minOccurs="0" />
+			<xsd:element name="intended-receiver"
+				type="tns:agent-identifier" maxOccurs="unbounded" minOccurs="0" />
+			<xsd:element name="received" type="tns:received"
+				maxOccurs="1" minOccurs="0" />
+			<xsd:element name="encrypted" type="xsd:string"
+				maxOccurs="1" minOccurs="0" />
+			<xsd:any minOccurs="0" maxOccurs="unbounded"
+				processContents="strict" namespace="##other" />
+		</xsd:sequence>
+		<xsd:attribute name="index" type="xsd:integer" use="required"/>
+	</xsd:complexType>
+</xsd:schema>

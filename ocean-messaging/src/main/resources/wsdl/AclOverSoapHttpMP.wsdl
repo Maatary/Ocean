@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.usi.ch/ict/dev/AclOverSoapHttpMP/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	name="AclOverSoapHttpMP"
+	targetNamespace="http://www.usi.ch/ict/dev/AclOverSoapHttpMP/">
+	
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<import schemaLocation="aclmessage.xsd" namespace="http://www.usi.ch/ict/dev/AclOverSoapHttpMP/"/>
+		</schema>
+	</wsdl:types>
+	
+	<wsdl:message name="sendMessageRequest">
+		<wsdl:part element="tns:acl-message" name="message" />
+	</wsdl:message>
+	
+	<wsdl:portType name="AclOverSoapHttpMPInterface">
+		<wsdl:operation name="sendMessage">
+			<wsdl:input message="tns:sendMessageRequest" />
+    	</wsdl:operation>
+	</wsdl:portType>
+	
+	<wsdl:binding name="AclOverSoapHttpMPBinding" type="tns:AclOverSoapHttpMPInterface">
+		<soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="sendMessage">
+			<soap12:operation soapAction="http://www.usi.ch/ict/dev/AclOverSoapHttpMP/sendMessage" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="AclOverSoapHttpMPService">
+		<wsdl:port binding="tns:AclOverSoapHttpMPBinding" name="AclOverSoapHttpMPPort">
+			<soap12:address location="http://localhost:8080/ACLSoapOverHttpMP/services/AclOverSoapHttpMPPort"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

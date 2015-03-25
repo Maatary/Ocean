@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY OblOntology "http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#" >
+    <!ENTITY CommitmentOntology "http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#"
+     xml:base="http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl"
+     xmlns:OblOntology="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:CommitmentOntology="http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#">
+    <owl:Ontology rdf:about="http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl">
+        <owl:imports rdf:resource="http://www.people.lu.unisi.ch/okouyad/OblOntology.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#commitTo -->
+
+    <owl:ObjectProperty rdf:about="&CommitmentOntology;commitTo">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&CommitmentOntology;ClaimGraph"/>
+        <rdfs:domain rdf:resource="&CommitmentOntology;PropositionalCommitment"/>
+        <owl:inverseOf rdf:resource="&CommitmentOntology;fromPcomit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#fromPcomit -->
+
+    <owl:ObjectProperty rdf:about="&CommitmentOntology;fromPcomit"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#ActionCommitment -->
+
+    <owl:Class rdf:about="&CommitmentOntology;ActionCommitment">
+        <owl:equivalentClass rdf:resource="&OblOntology;Obligation"/>
+        <rdfs:subClassOf rdf:resource="&CommitmentOntology;Commitment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#ClaimGraph -->
+
+    <owl:Class rdf:about="&CommitmentOntology;ClaimGraph"/>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#Commitment -->
+
+    <owl:Class rdf:about="&CommitmentOntology;Commitment">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&OblOntology;hasCreditor"/>
+                        <owl:onClass rdf:resource="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Agent"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&OblOntology;hasDebtor"/>
+                        <owl:onClass rdf:resource="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Agent"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/CommitmentOntology.owl#PropositionalCommitment -->
+
+    <owl:Class rdf:about="&CommitmentOntology;PropositionalCommitment">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&CommitmentOntology;commitTo"/>
+                        <owl:onClass rdf:resource="&CommitmentOntology;ClaimGraph"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&OblOntology;hasCreditor"/>
+                        <owl:onClass rdf:resource="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Agent"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&OblOntology;hasDebtor"/>
+                        <owl:onClass rdf:resource="http://www.people.lu.unisi.ch/okouyad/OceanCL.owl#Agent"/>
+                        <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&CommitmentOntology;Commitment"/>
+        <rdfs:subClassOf rdf:resource="&OblOntology;OccuredEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.people.lu.unisi.ch/okouyad/OblOntology.owl#Obligation -->
+
+    <rdf:Description rdf:about="&OblOntology;Obligation"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
